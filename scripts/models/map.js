@@ -1,6 +1,11 @@
+//avoid introducing a global like this. It can cause subtle issues in the long run.
+//Both the states and the map would probably have been better off namespaced under
+//something "exported" here.
 var states = [];
 
 var map = AmCharts.makeChart( 'chartdiv', {
+  //Prefer not using strings for key names unless for some reason the
+  //key is an invalid key name.
   'type': 'map',
   'theme': 'light',
 

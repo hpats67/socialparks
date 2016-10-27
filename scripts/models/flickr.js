@@ -32,6 +32,10 @@
   };
 
   flickrData.buttonHandler = function() {
+    //Cool way to handle the next/previous. I might have used some data on
+    //the element to indicate whether it was next or previous and then
+    //checked for that in the event handler rather than attaching two
+    //different handlers to two different classes.
     $('button.flickr-next-media').on('click', function() {
       console.log('next-button clicked');
       if (flickrData.picIndex <= (flickrData.flickrArray.length - 1)) {

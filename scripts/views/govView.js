@@ -5,6 +5,7 @@
     parksView.designationFilter = function(array) {
     if($('#state-filter option').length < 2) {
     var desArray = [];
+    // probably just want to use map here
     array.forEach(function(obj) {
       var des = obj.designation;
       desArray.push(des);
@@ -14,6 +15,8 @@
       return prev;
     }, {});
     for (keys in myout) {
+      //if you have access to an array to iterate over rather than the keys of an object you're going
+      //to want to prefer that.
       this.keys = myout.keys;
       var optionTag = '<option value="' + keys + '">' + keys + ' ' + myout[keys] + '</option>';
       $('#state-filter').append(optionTag);
@@ -31,6 +34,8 @@
       });
     }
   };
+  //haha noted. Try not to let commented out code into production versions, though
+
 // This code is not necessary, but I'm not yet willing to delete it.
   // parksView.handleParksFilter = function(parkCode) {
   //   $('#park-filter').on('change', function() {

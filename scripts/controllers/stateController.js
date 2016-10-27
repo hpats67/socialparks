@@ -11,6 +11,12 @@
   };
 
   stateController.loadData = function(ctx, next) {
+    //alternately you could have mapped the state ids and called
+    //.join() as it defaults to a comma. This is a valid way to
+    //handle this it's just good to keep in mind that once you
+    //get used to the functional programming methods, they're often
+    //the coolest way to handle things but they're not always
+    //necessarily the best.
     var statesId = states.reduce(function(acc, curr, index) {
       if (index === 0) {
         return curr['id'];
