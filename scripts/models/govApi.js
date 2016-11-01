@@ -43,6 +43,7 @@
 
   parksObj.getMultiParks = function(arr, callback) {
     parksObj.multiParks = [];
+    //break this out to multiple lines
     var baseUrl = '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=';
     arr.forEach(function(el){
       $.ajax({
@@ -50,6 +51,9 @@
         success: function(data) {
           parksObj.multiParks.push(data.data[0]);
           parksObj.counter += 1;
+          //nice fix for multiple ajax calls. Even if you're only doing this once
+          //you may want to reset the counter before you call the callback. Since
+          //it's a property of the object nothing is reseting it on its own.
           if (parksObj.counter === arr.length) {
             callback(parksObj.multiParks);
           }
